@@ -11,12 +11,15 @@ public class Jump : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+       if (Input.GetButtonDown("Jump") && rb.velocity.y == 0)
+        {
+            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+        }
     }
 }
